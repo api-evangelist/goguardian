@@ -1,0 +1,124 @@
+aid: goguardian
+name: GoGuardian
+review:
+  question: Does GoGuardian expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. GoGuardian does not publish a documented
+    public WebSocket (ws:// or wss://) API. GoGuardian's products - Admin,
+    Teacher, and Beacon - are administered through web dashboards, and its
+    integration model is roster ingestion over standards-based REST (OneRoster
+    1.1, Clever, ClassLink) plus consumption of Google Workspace admin APIs.
+    Realtime behavior in the product (live class views, Beacon alerts) is
+    delivered inside GoGuardian's own hosted UI and notification channels
+    (dashboard, email, SMS), not as a publicly documented server-push transport
+    that a third-party developer can subscribe to. There is therefore no
+    GoGuardian-owned WebSocket surface to model.
+findings:
+  summary: |
+    GoGuardian does not publish a documented public WebSocket API, and its
+    outbound developer surface as a whole is partner-gated rather than openly
+    published. GoGuardian is a K-12 edtech provider (content filtering,
+    classroom management, student safety). Districts configure it through the
+    Admin, Teacher, and Beacon dashboards. Its documented integration model is
+    consumer-side roster synchronization: GoGuardian pulls organizations,
+    students, teachers, guardians, classes, and enrollments from a district SIS
+    via the 1EdTech OneRoster 1.1 REST API (Consumer ID / Secret + OneRoster
+    URL), and via Clever, ClassLink, and Google Classroom. GoGuardian also
+    consumes Google Workspace admin APIs on the district's behalf (the
+    "Enable API Access" help articles concern enabling Google APIs for
+    GoGuardian, not exposing a GoGuardian API). A developer / partner docs
+    portal exists at based.goguardian.com ("GoGuardian Based Docs"), but it did
+    not expose an openly enumerable public REST reference, base URL, or
+    self-serve API-key flow at review time. No WebSocket endpoint is documented
+    anywhere.
+  accessModel: |
+    Partner / district gated. There is no public self-serve developer signup that
+    yields an API key against a documented GoGuardian REST catalog. Roster
+    integration is set up by a district administrator (OneRoster certificate /
+    Consumer ID + Secret, Clever, ClassLink, or Google Classroom). Deeper
+    developer / partner integration is arranged directly with GoGuardian, with
+    reference material behind based.goguardian.com. API entries in apis.yml are
+    honestly modeled logical surfaces (endpointsModeled), not a confirmed public
+    endpoint catalog.
+  endpointsModeled: true
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: partial
+      note: >-
+        Roster ingestion follows the 1EdTech OneRoster 1.1 REST API on the
+        district / SIS side (GoGuardian is the consumer). GoGuardian's own
+        outbound REST surface is partner-gated; no public base URL is published.
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: >-
+        GoGuardian consumes Google Workspace / Google Admin APIs on the
+        district's behalf ("Enable API Access" enables Google APIs for
+        GoGuardian, not a GoGuardian-exposed API).
+    - protocol: Webhook
+      scheme: https
+      documented: false
+      note: >-
+        No public outbound webhook / event subscription API is documented for
+        third-party developers. Beacon alerts are delivered via dashboard,
+        email, and SMS notifications configured in Admin.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented anywhere in GoGuardian's public
+        materials as of the review date.
+  publicApiStatus: gated
+sources:
+  - url: https://based.goguardian.com/
+    type: Documentation
+    note: >-
+      "GoGuardian Based Docs" developer / partner portal. JS-rendered SPA; no
+      openly enumerable public REST reference or WebSocket endpoint surfaced.
+  - url: https://support.goguardian.com/s/article/Integration-with-OneRoster
+    type: Documentation
+    note: >-
+      OneRoster 1.1 integration - GoGuardian consumes roster data (OUs,
+      students, teachers, guardians, classes) from the district SIS.
+  - url: https://support.goguardian.com/s/article/Clever-and-ClassLink-Integrations-FAQ-1629765161385
+    type: Documentation
+    note: Clever and ClassLink rostering integrations for GoGuardian.
+  - url: https://www.goguardian.com/product-update/oneroster-integration
+    type: Documentation
+    note: OneRoster integration announcement; sync of OUs, students, teachers, guardians, classrooms.
+  - url: https://support.goguardian.com/s/article/Enable-API-Access-1629763558239
+    type: Documentation
+    note: >-
+      "Enable API Access" concerns enabling Google APIs for GoGuardian to
+      consume, not exposing a GoGuardian public API.
+  - url: https://support.goguardian.com/s/goguardian-beacon
+    type: Documentation
+    note: >-
+      Beacon student-safety alerting; alerts routed via dashboard, email, SMS -
+      not a public alerts REST/WebSocket API.
+  - url: https://github.com/goguardian
+    type: SourceCode
+    note: >-
+      GoGuardian GitHub org - infrastructure / AWS tooling and Go libraries
+      (kcl, xray, pusher-ws-go client); no public API SDK or OpenAPI spec.
+  - url: https://www.goguardian.com/pricing
+    type: Website
+    note: >-
+      Contact-sales, per-student pricing (volume / term based); no published
+      developer API plan or metered API pricing.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and GoGuardian's own public developer
+    API is partner-gated rather than openly documented. No AsyncAPI document was
+    created because there is no server-push transport on a GoGuardian-owned
+    public API to model. apis.yml documents GoGuardian honestly as a gated
+    provider with modeled logical surfaces (rostering ingestion, the Based
+    developer portal, and Beacon alerts) linked to real documentation, without
+    fabricating a REST endpoint catalog.

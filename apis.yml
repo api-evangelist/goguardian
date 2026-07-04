@@ -1,0 +1,115 @@
+aid: goguardian
+url: https://raw.githubusercontent.com/api-evangelist/goguardian/refs/heads/main/apis.yml
+name: GoGuardian
+kind: company
+description: GoGuardian is a K-12 education technology company whose suite - Admin
+  (DNS and device content filtering for CIPA compliance), Teacher (classroom
+  management and student engagement), and Beacon (student safety and self-harm /
+  suicide risk detection) - is administered through web dashboards rather than a
+  broadly published public API. GoGuardian's integration model is primarily
+  roster ingestion - it syncs organizations, students, teachers, guardians, and
+  classes from district Student Information Systems via the IMS Global / 1EdTech
+  OneRoster 1.1 REST API (using a Consumer ID / Secret and a OneRoster URL),
+  Clever, ClassLink, and Google Classroom, and it consumes Google Workspace admin
+  APIs on the district's behalf. A developer / partner documentation portal exists
+  at based.goguardian.com ("GoGuardian Based Docs"), but GoGuardian's own outbound
+  developer API surface is partner-gated and not openly published. The API entries
+  below are honestly modeled logical surfaces, not a confirmed public REST catalog.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Education
+- EdTech
+- K-12
+- Content Filtering
+- Classroom Management
+- Student Safety
+- Rostering
+- OneRoster
+- Partner API
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis:
+- aid: goguardian:goguardian-rostering-integration
+  name: GoGuardian Rostering Integration (OneRoster / Clever / ClassLink)
+  tags:
+  - Rostering
+  - OneRoster
+  - Clever
+  - ClassLink
+  - SIS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://support.goguardian.com/s/article/Integration-with-OneRoster
+  properties:
+  - url: https://support.goguardian.com/s/article/Integration-with-OneRoster
+    type: Documentation
+  - url: https://support.goguardian.com/s/article/Clever-and-ClassLink-Integrations-FAQ-1629765161385
+    type: Documentation
+  - url: https://www.goguardian.com/product-update/oneroster-integration
+    type: Documentation
+  description: Consumer-side roster synchronization. GoGuardian ingests organizations
+    (OUs), students, teachers, guardians, classes, and enrollments from a district's
+    Student Information System via the OneRoster 1.1 REST API (configured with a
+    Consumer ID, Consumer Secret, and a OneRoster base URL), or via Clever, ClassLink,
+    and Google Classroom. This is GoGuardian pulling standards-based roster data, not
+    a GoGuardian-owned REST API. Endpoints follow the 1EdTech OneRoster specification
+    on the district / SIS side; modeled here as an integration surface.
+- aid: goguardian:goguardian-based-developer-api
+  name: GoGuardian Based Developer / Partner API
+  tags:
+  - Developer
+  - Partner
+  - Integration
+  - Gated
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://based.goguardian.com/
+  properties:
+  - url: https://based.goguardian.com/
+    type: Documentation
+  - url: https://support.goguardian.com/s/article/Enable-API-Access-1629763558239
+    type: Documentation
+  description: GoGuardian maintains a developer / integration documentation portal at
+    based.goguardian.com ("GoGuardian Based Docs"). Access to GoGuardian's outbound
+    developer surface is partner-gated - there is no openly enumerable public REST
+    reference, base URL, or self-serve API key flow published for third-party
+    developers as of the review date. Documented as a gated developer surface;
+    endpoints modeled, not confirmed. Districts and integration partners engage
+    GoGuardian directly to enable API access.
+- aid: goguardian:goguardian-beacon-alerts
+  name: GoGuardian Beacon Alerts (Student Safety)
+  tags:
+  - Beacon
+  - Alerts
+  - Student Safety
+  - Notifications
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://support.goguardian.com/s/goguardian-beacon
+  properties:
+  - url: https://support.goguardian.com/s/goguardian-beacon
+    type: Documentation
+  - url: https://www.goguardian.com/product-update/beacon-adds-google-docs-api-integration
+    type: Documentation
+  description: GoGuardian Beacon analyzes student browsing (and, via a Google Docs API
+    integration, document) activity to detect signals of suicide, self-harm, and
+    other safety risk, then routes time-stamped alerts through dashboard, email, and
+    SMS notifications with configurable escalation paths. Beacon's alerting is
+    configured and consumed through the Admin dashboard and notification channels
+    rather than a published public alerts REST API; modeled here as a logical surface.
+common:
+- type: GitHubOrganization
+  url: https://github.com/goguardian
+- type: LinkedIn
+  url: https://www.linkedin.com/company/goguardian
+- type: Website
+  url: https://www.goguardian.com/
+- type: Documentation
+  url: https://based.goguardian.com/
+- type: Support
+  url: https://support.goguardian.com/s/
+- type: Website
+  url: https://www.goguardian.com/pricing
+- type: Blog
+  url: https://www.goguardian.com/blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
