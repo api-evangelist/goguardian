@@ -96,6 +96,8 @@ apis:
     configured and consumed through the Admin dashboard and notification channels
     rather than a published public alerts REST API; modeled here as a logical surface.
 common:
+- type: DomainSecurity
+  url: security/goguardian-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/goguardian
 - type: LinkedIn
