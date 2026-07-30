@@ -15,7 +15,18 @@ description: GoGuardian is a K-12 education technology company whose suite - Adm
   at based.goguardian.com ("GoGuardian Based Docs"), but GoGuardian's own outbound
   developer API surface is partner-gated and not openly published. The API entries
   below are honestly modeled logical surfaces, not a confirmed public REST catalog.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/goguardian.png
 tags:
 - Education
 - EdTech
