@@ -39,7 +39,7 @@ tags:
 - Partner API
 created: '2026-07-04'
 modified: '2026-07-04'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: goguardian:goguardian-rostering-integration
   name: GoGuardian Rostering Integration (OneRoster / Clever / ClassLink)
