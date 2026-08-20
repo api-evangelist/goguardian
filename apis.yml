@@ -68,6 +68,11 @@ apis:
 - aid: goguardian:goguardian-based-developer-api
   name: GoGuardian Based Developer / Partner API
   tags:
+  - Developers
+  - Partner
+  - Integration
+  - Gated
+  tags_raw:
   - Developer
   - Partner
   - Integration
@@ -89,6 +94,11 @@ apis:
 - aid: goguardian:goguardian-beacon-alerts
   name: GoGuardian Beacon Alerts (Student Safety)
   tags:
+  - Beacon
+  - Alerts
+  - Student Safety
+  - Notification
+  tags_raw:
   - Beacon
   - Alerts
   - Student Safety
