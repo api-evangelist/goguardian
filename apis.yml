@@ -105,7 +105,7 @@ apis:
 - aid: goguardian:goguardian-beacon-alerts
   name: GoGuardian Beacon Alerts (Student Safety)
   tags:
-  - Beacon
+  - beacon
   - Alerts
   - Student Safety
   - Notification
