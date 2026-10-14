@@ -1,0 +1,125 @@
+edges:
+- partner_name: 1EdTech
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://site.imsglobal.org/certifications
+  category: 1EdTech certified products
+  contract_reference:
+    register: 1EdTech certified product directory (TrustEd Apps)
+    spec_file: null
+    standard: 1EdTech
+    role: Contributing Member
+    registered_name: GoGuardian
+    matched_domain: goguardian.com
+    matched_by: domain
+    standards:
+    - Data Privacy
+    certified_products:
+    - product: GoGuardian Admin
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/goguardian-admin/v1
+    - product: GoGuardian Beacon
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/goguardian-beacon/v1
+    - product: GoGuardian Discover
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/goguardian-discover/v1
+    - product: GoGuardian Hall Pass
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/goguardian-hall-pass/v1
+    - product: GoGuardian Teacher
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/goguardian-teacher/v1
+    - product: GoGuardian Visitor
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/node/880312
+    - product: Pear Assessment
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/pear-assessment/v1
+    - product: Pear Deck
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/pear-deck/v1
+    - product: Pear Practice
+      version: v1
+      standards:
+      - Data Privacy
+      implementation: null
+      attributes:
+      - Certified Product
+      - TrustEd Apps Seal
+      - Vetted
+      lapsed: false
+      url: https://site.imsglobal.org/certifications/goguardian/pear-practice/v1
+    detected_by: sweep-edtech.py
+    detected: '2026-10-14'
+generated: '2026-10-14'
+method: searched
+checked:
+- https://site.imsglobal.org/certifications
