@@ -1,4 +1,23 @@
 edges:
+- partner_name: Clever (clever-app-gallery)
+  partner: clever
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: clever-app-gallery
+  evidence: https://clever.com/app-gallery
+  mirror_of: clever/integrations/clever-integration-edges.yml
+  apps: []
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: classroom_management
+  features:
+  - instant_login
+  - secure_sync
 - partner_name: 1EdTech
   partner: null
   type: contract
@@ -118,26 +137,7 @@ edges:
       lapsed: false
       url: https://site.imsglobal.org/certifications/goguardian/pear-practice/v1
     detected_by: sweep-edtech.py
-    detected: '2026-10-14'
-- partner_name: Clever (clever-app-gallery)
-  partner: clever
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: clever-app-gallery
-  evidence: https://clever.com/app-gallery
-  mirror_of: clever/integrations/clever-integration-edges.yml
-  apps: []
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: classroom_management
-  features:
-  - instant_login
-  - secure_sync
+    detected: '2026-10-19'
 generated: '2026-10-14'
 method: searched
 checked:
