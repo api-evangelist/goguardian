@@ -1,4 +1,4 @@
-# GoGuardian (goguardian)
+# GoGuardian
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,86 +64,89 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-GoGuardian is a K-12 education technology company. Its suite - **Admin** (DNS and device content filtering for CIPA compliance across ChromeOS, Windows, and macOS), **Teacher** (classroom management and student engagement), and **Beacon** (student safety and suicide / self-harm risk detection) - is administered through web dashboards rather than a broadly published public developer API.
+GoGuardian is a K-12 education technology company whose suite - Admin (DNS and device content filtering for CIPA compliance), Teacher (classroom management and student engagement), and Beacon (student safety and self-harm / suicide risk detection) - is administered through web dashboards rather than a broadly published public API. GoGuardian's integration model is primarily roster ingestion - it syncs organizations, students, teachers, guardians, and classes from district Student Information Systems via the IMS Global / 1EdTech OneRoster 1.1 REST API (using a Consumer ID / Secret and a OneRoster URL), Clever, ClassLink, and Google Classroom, and it consumes Google Workspace admin APIs on the district's behalf. A developer / partner documentation portal exists at based.goguardian.com ("GoGuardian Based Docs"), but GoGuardian's own outbound developer API surface is partner-gated and not openly published. The API entries below are honestly modeled logical surfaces, not a confirmed public REST catalog.
 
-**Access model (important):** GoGuardian's own outbound developer API surface is **partner / district gated**. There is no public self-serve developer signup that yields an API key against a documented GoGuardian REST catalog. GoGuardian's documented integration model is primarily *consumer-side roster ingestion*: it syncs organizations (OUs), students, teachers, guardians, classes, and enrollments from a district's Student Information System via the 1EdTech **OneRoster 1.1 REST API** (using a Consumer ID / Secret and a OneRoster URL), and via **Clever**, **ClassLink**, and **Google Classroom**. The "Enable API Access" help articles concern enabling **Google Workspace / Google Admin APIs for GoGuardian to consume**, not exposing a GoGuardian API. A developer / partner documentation portal exists at **based.goguardian.com** ("GoGuardian Based Docs"), but it did not expose an openly enumerable public REST reference, base URL, or self-serve API-key flow at review time.
+**Areas:** Education · EdTech · K-12 · Content Filtering · Classroom Management · Student Safety · Rostering · OneRoster · Partner API
 
-The API entries below are **honestly modeled logical surfaces (`endpointsModeled`)**, not a confirmed public REST endpoint catalog.
+## GoGuardian on APIs.io
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/goguardian/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/goguardian/refs/heads/main/apis.yml)
+Everything profiled for GoGuardian is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/goguardian/](https://apis.io/providers/goguardian/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Education
-- EdTech
-- K-12
-- Content Filtering
-- Classroom Management
-- Student Safety
-- Rostering
-- OneRoster
-- Partner API
+- [GoGuardian Rostering Integration (OneRoster / Clever / ClassLink)](https://apis.io/apis/goguardian/goguardian-rostering-integration/) — Consumer-side roster synchronization. GoGuardian ingests organizations (OUs), students, teachers, guardians, classes, and enrollments from a district's…
+- [GoGuardian Based Developer / Partner API](https://apis.io/apis/goguardian/goguardian-based-developer-api/) — GoGuardian maintains a developer / integration documentation portal at based.goguardian.com ("GoGuardian Based Docs"). Access to GoGuardian's outbound…
+- [GoGuardian Beacon Alerts (Student Safety)](https://apis.io/apis/goguardian/goguardian-beacon-alerts/) — GoGuardian Beacon analyzes student browsing (and, via a Google Docs API integration, document) activity to detect signals of suicide, self-harm, and other…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-04
-- **Modified:** 2026-07-04
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs (modeled)
+#### Security (1)
 
-### GoGuardian Rostering Integration (OneRoster / Clever / ClassLink)
+Authentication, trust centre, and vulnerability disclosure.
 
-Consumer-side roster synchronization. GoGuardian ingests organizations (OUs), students, teachers, guardians, classes, and enrollments from a district's Student Information System via the OneRoster 1.1 REST API (configured with a Consumer ID, Consumer Secret, and a OneRoster base URL), or via Clever, ClassLink, and Google Classroom. This is GoGuardian pulling standards-based roster data, not a GoGuardian-owned REST API.
+- [Goguardian Domain Security](https://apis.io/security/goguardian/goguardian-domain-security/)
 
-- **Human URL:** [https://support.goguardian.com/s/article/Integration-with-OneRoster](https://support.goguardian.com/s/article/Integration-with-OneRoster)
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation - OneRoster Integration](https://support.goguardian.com/s/article/Integration-with-OneRoster)
-- [Documentation - Clever & ClassLink FAQ](https://support.goguardian.com/s/article/Clever-and-ClassLink-Integrations-FAQ-1629765161385)
-- [Documentation - OneRoster Announcement](https://www.goguardian.com/product-update/oneroster-integration)
-
-### GoGuardian Based Developer / Partner API
-
-GoGuardian maintains a developer / integration documentation portal at based.goguardian.com ("GoGuardian Based Docs"). Access to GoGuardian's outbound developer surface is partner-gated - there is no openly enumerable public REST reference, base URL, or self-serve API key flow published for third-party developers as of the review date. Documented as a gated developer surface; endpoints modeled, not confirmed.
-
-- **Human URL:** [https://based.goguardian.com/](https://based.goguardian.com/)
-
-#### Properties
-
-- [Documentation - Based Docs](https://based.goguardian.com/)
-- [Documentation - Enable API Access](https://support.goguardian.com/s/article/Enable-API-Access-1629763558239)
-
-### GoGuardian Beacon Alerts (Student Safety)
-
-GoGuardian Beacon analyzes student browsing (and, via a Google Docs API integration, document) activity to detect signals of suicide, self-harm, and other safety risk, then routes time-stamped alerts through dashboard, email, and SMS notifications with configurable escalation paths. Beacon's alerting is configured and consumed through the Admin dashboard and notification channels rather than a published public alerts REST API.
-
-- **Human URL:** [https://support.goguardian.com/s/goguardian-beacon](https://support.goguardian.com/s/goguardian-beacon)
-
-#### Properties
-
-- [Documentation - Beacon](https://support.goguardian.com/s/goguardian-beacon)
-- [Documentation - Beacon Google Docs API Integration](https://www.goguardian.com/product-update/beacon-adds-google-docs-api-integration)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/goguardian)
-- [LinkedIn](https://www.linkedin.com/company/goguardian)
 - [Website](https://www.goguardian.com/)
-- [Documentation - Based Docs](https://based.goguardian.com/)
-- [Support / Help Center](https://support.goguardian.com/s/)
-- [Pricing](https://www.goguardian.com/pricing)
+- [Documentation](https://based.goguardian.com/)
+- [Support](https://support.goguardian.com/s/)
 - [Blog](https://www.goguardian.com/blog)
+- [GitHub](https://github.com/goguardian)
 
-## Pricing
+## API Evangelist rating
 
-GoGuardian does not publish standard pricing. It is **contact-sales, per-student**, with volume and multi-year term discounts (widely reported in the roughly $1.50-$6.00 per student / month range depending on bundle and term). There is no published developer API plan or metered API pricing.
+**Kin Score 5.2** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-## WebSocket Review
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 0.0 |
 
-Does GoGuardian expose a documented public WebSocket API? **No.** See `review.yml`. GoGuardian publishes no WebSocket (ws:// / wss://) API; realtime behavior (live class views, Beacon alerts) is delivered inside GoGuardian's own hosted UI and notification channels, not as a public server-push transport.
+**Agent readiness 0.0** — human-only
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Regulatory alignment 5.9** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/goguardian/](https://apis.io/providers/goguardian/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GoGuardian: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/goguardian/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
